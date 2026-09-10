@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>NEO FRONTIER</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="spaceBackdrop"></div>
+  <div id="nebulaA"></div><div id="nebulaB"></div><div class="nebula nebula-c"></div>
+  <div class="galaxy galaxy-a"><i></i></div><div class="galaxy galaxy-b"><i></i></div><div class="galaxy galaxy-c"><i></i></div>
+  <header class="hud">
+    <div class="brand">NEO <span>FRONTIER</span></div>
+    <div class="stat"><small>SCORE</small><b id="score">0</b></div>
+    <div class="stat"><small>HIGH SCORE</small><b id="highScore">0</b></div>
+    <div class="stat"><small>LEVEL</small><b id="level">1</b></div>
+    <div class="stat"><small>STARS</small><b id="starsCount">0</b></div>
+    <div class="health-wrap"><small>HULL INTEGRITY</small><div class="health"><i id="healthBar"></i></div><b id="healthText">100%</b></div>
+    <button id="pauseBtn" class="hud-btn">PAUSE</button>
+  </header>
+
+  <main id="game">
+    <div id="starfieldFar"></div><div id="starfieldNear"></div>
+    <div class="planet planet-a"></div><div class="planet planet-b"></div>
+    <div class="grid-floor"></div>
+    <div id="playfield">
+      <div id="player" class="ship player-ship">
+        <div class="ship-glow"></div><div class="cockpit"></div><div class="core"></div>
+        <div class="wing wing-l"></div><div class="wing wing-r"></div>
+        <div class="cannon cannon-l"></div><div class="cannon cannon-r"></div>
+        <div class="engine engine-l"></div><div class="engine engine-r"></div>
+      </div>
+      <div id="toast"></div>
+    </div>
+
+    <section id="startScreen" class="overlay">
+      <div class="panel hero-panel">
+        <div class="eyebrow">RETROFUTURE DEEP-SPACE ARCADE</div>
+        <h1>NEO <em>FRONTIER</em></h1>
+        <p>Harvest stars, upgrade the frontier interceptor, and survive escalating enemy formations.</p>
+        <div class="controls"><span>← / A</span> MOVE <span>SPACE</span> FIRE <span>P</span> PAUSE <span>B</span> BOMB</div>
+        <button id="startBtn" class="primary">LAUNCH MISSION</button>
+      </div>
+    </section>
+
+    <section id="levelClear" class="overlay hidden">
+      <div class="panel level-panel">
+        <div class="eyebrow">WAVE CLEARED</div>
+        <h2>LEVEL <span id="clearedLevel">1</span> COMPLETE</h2>
+        <div class="clear-stats"><div><small>SCORE</small><b id="clearScore">0</b></div><div><small>STARS BANKED</small><b id="clearStars">0</b></div></div>
+        <p>Proceed to the Starforge. Your mission pauses while you spend your earned stars.</p>
+        <button id="openUpgradeBtn" class="primary">ENTER STARFORGE</button>
+      </div>
+    </section>
+
+    <section id="upgradeScreen" class="overlay hidden">
+      <div class="upgrade-shell">
+        <div class="upgrade-head"><div><div class="eyebrow">STARFORGE COMMAND DECK</div><h2>UPGRADE YOUR CRAFT</h2></div><div class="bank"><small>STAR BANK</small><b id="upgradeStars">0</b> ◆</div></div>
+        <p class="upgrade-sub">Spend earned stars between levels. Every upgrade persists for the rest of the run.</p>
+        <div id="upgradeGrid" class="upgrade-grid"></div>
+        <div class="upgrade-actions"><button id="continueBtn" class="primary">DEPLOY TO LEVEL <span id="nextLevel">2</span></button></div>
+      </div>
+    </section>
+
+    <section id="pauseScreen" class="overlay hidden">
+      <div class="panel"><div class="eyebrow">COMBAT FROZEN</div><h2>PAUSED</h2><button id="resumeBtn" class="primary">RESUME</button></div>
+    </section>
+
+    <section id="gameOver" class="overlay hidden death-screen">
+      <div class="death-title">YOU DIED</div>
+      <div class="death-sub">THE FRONTIER CLAIMS ANOTHER PILOT</div>
+      <div class="death-score">SCORE <b id="finalScore">0</b> <span>•</span> HIGH SCORE <b id="finalHigh">0</b></div>
+      <button id="restartBtn" class="death-btn">RETURN TO FRONTIER</button>
+    </section>
+
+    <div id="powerStatus" class="power-status"></div>
+    <div class="mobile-controls"><button id="upTouch">▲</button><button id="leftTouch">◀</button><button id="shootTouch">◆ FIRE</button><button id="rightTouch">▶</button><button id="downTouch">▼</button></div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
